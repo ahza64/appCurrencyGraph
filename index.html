@@ -82,10 +82,30 @@
       return maxH;
     }
 
+    function findMinW(data){
+      var minW = findMaxW(data);
+      for (var i = 0; i < data.length; i++){
+        if (data[i][0] < minW){
+          minW = data[i][0];
+        }
+      }
+      return minW;
+    }
+
+    function findMinH(data){
+      var minH = findMaxH(data);
+      for (var i = 0; i < data.length; i++){
+        if (data[i][1] < minH){
+          minH = data[i][1];
+        }
+      }
+      return minH;
+    }
+
 		// X scale will fit all values from data[] within pixels 0-w
-		var x = d3.scale.linear().domain([0, findMaxW(data)]).range([0, w]);
+		var x = d3.scale.linear().domain([findMinW(data), findMaxW(data)*1.01]).range([0, w]);
 		// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-		var y = d3.scale.linear().domain([.4, findMaxH(data)]).range([h, 0]);
+		var y = d3.scale.linear().domain([findMinH(data), findMaxH(data)*1.01]).range([h, 0]);
 			// automatically determining max range can work something like this
 			// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
 
