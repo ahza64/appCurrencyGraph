@@ -43,20 +43,27 @@
 
     // create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
     var data = [
-                  [0, 8],
-                  [1, 4],
-                  [3, 2],
-                  [5, 2],
-                  [6, 2],
-                  [9, 2]
+                  [500, .594],
+                  [1000, .554],
+                  [2000, .517],
+                  [3000, .496],
+                  [4000, .482],
+                  [5000, .471],
+                  [7000, .455],
+                  [8000, .449],
+                  [10000, .4393],
+                  [12000, .43125],
+                  [15000, .4216],
+                  [20000, .409],
+                  [25000, .4]
                 ];//, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
     // define dimensions of graph
 		var m = [80, 80, 80, 80]; // margins
-		var w = findW(data) * 50; //- m[1] - m[3]; // width
-		var h = findH(data) * 50; //- m[0] - m[2]; // height
+		var w = findW(data) / 50; //- m[1] - m[3]; // width
+		var h = findH(data) + 500; //- m[0] - m[2]; // height
 
     function findW(data){
-      var maxW = 1;
+      var maxW = 0;
       for (var i = 0; i < data.length; i++){
         if (data[i][0] > maxW){
           maxW = data[i][0];
@@ -66,7 +73,7 @@
     };
 
     function findH(data){
-      var maxH = 1;
+      var maxH = 0;
       for (var i = 0; i < data.length; i++){
         if (data[i][1] > maxH){
           maxH = data[i][1];
